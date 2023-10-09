@@ -1,0 +1,20 @@
+<div class="container bg">
+  <div class="form-container padding">
+    <form class="form" [formGroup]="warehouseForm" (submit)="submit()">
+      <mat-form-field id="item-name" color="primary" class="form-field">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" [formControl]="form.name">
+        <mat-error *ngIf="submitAttempt && form.name.errors?.required">You must enter a name</mat-error>
+      </mat-form-field>
+      <app-address-search [group]="warehouseForm"></app-address-search>
+      <div class="full-btn">
+        <button
+          [disabled]="isLoading"
+          class="button {{ isLoading ? 'btn-loading' : ''}} full-btn" button="submit"
+          mat-fab extended color="primary">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

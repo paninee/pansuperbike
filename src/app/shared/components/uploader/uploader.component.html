@@ -1,0 +1,8 @@
+<mat-form-field id="item-img" color="primary" class="img-form">
+  <ngx-mat-dropzone placeholder="Drop your item image here, or click to browse.">
+    <input type="file" fileInput [formControl]="input"/>
+  </ngx-mat-dropzone>
+  <mat-error *ngIf="input.errors">Image is required</mat-error>
+</mat-form-field>
+
+

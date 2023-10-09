@@ -1,0 +1,142 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import './lib.scss';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+//primary custom color
+$primary-palette: (
+  50: #dff5eb,
+  100: #b2e5ce,
+  200: #7dd4ae,
+  300: $primary,
+  400: #00b776,
+  500: #00aa60,
+  600: #009b55,
+  700: #008948,
+  800: #00783c,
+  900: #005827,
+  contrast: (
+    50: rgba(#0c1711, 0.87),
+    100: rgba(#081b11, 0.87),
+    200: rgba(#181a19, 0.87),
+    300: rgba(#081b11, 0.87),
+    400: rgba(#081b11, 0.87),
+    500: #dff5eb,
+    600: #dff5eb,
+    700: #dff5eb,
+    800: #dff5eb,
+    900: #dff5eb
+  ),
+  background: green
+);
+
+//secondary custom color
+$secondary-palette: (
+  50: #e2f1f0,
+  100: #b7ddd9,
+  200: #8ac7c1,
+  300: #62b1a9,
+  400: #4aa096,
+  500: #3e9084,
+  600: #398378,
+  700: #347368,
+  800: #30635a,
+  900: #28473f,
+  contrast: (
+    50: rgba(#0f1c18, 0.87),
+    100: rgba(#0f1c18, 0.87),
+    200: rgba(#0f1c18, 0.87),
+    300: rgba(#0f1c18, 0.87),
+    400: rgba(#0f1c18, 0.87),
+    500: #e2f1f0,
+    600: #e2f1f0,
+    700: #e2f1f0,
+    800: #e2f1f0,
+    900: #e2f1f0
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$pansuperbike-primary: mat.define-palette($primary-palette);
+$pansuperbike-accent: mat.define-palette($secondary-palette);
+
+// The warn palette is optional (defaults to red).
+$pansuperbike-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $pansuperbike-primary,
+    accent: $pansuperbike-accent,
+    warn: $pansuperbike-warn,
+  )
+));
+
+// Define a dark theme
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $pansuperbike-primary,
+    accent: $pansuperbike-accent,
+    warn: $pansuperbike-warn,
+  ),
+  // Only include `typography` and `density` in the default dark theme.
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Set background color according to the theme
+$palette-color: map-get($light-theme, color);
+$background: map-get($palette-color, background);
+$background: map_merge($background, (background: #e1e1e1));
+$palette-color: map_merge($palette-color, (background: $background));
+$light-theme: map_merge($light-theme, (color: $palette-color));
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($light-theme);
+/* You can add global styles to this file, and also import other style files */
+
+// Apply the dark colors only when the user prefers dark colors.
+.dark-theme {
+  @include mat.all-component-colors($dark-theme);
+}
+
+
+@import './material.scss';
+@import './buttons.scss';
+
+// App-specific global styles
+* {
+  font-family: 'Alegreya Sans';
+}
+
+html, body {
+  height: 100%;
+}
+
+body, span {
+  margin: 0;
+  font-size: 16px;
+}
+
+.bg {
+  background-color: var(--mat-sidenav-container-background-color);
+  border-radius: $border-radius;
+}
+
+
+.padding {
+  padding: $spacing-16;
+}
+
+@import '~mapbox-gl/dist/mapbox-gl.css';

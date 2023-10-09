@@ -1,0 +1,25 @@
+<div id="warehouses-header-container">
+  <button mat-flat-button value="new" aria-label="add new warehouse" routerLink="/warehouses/new">
+    <fa-icon icon="add" matPrefix size="2xl"></fa-icon>
+    New Warehouse
+  </button>
+</div>
+<div class="warehouse">
+  <mgl-map
+    [accessToken]="mapBoxAccesssToken"
+    [style]="'mapbox://styles/mapbox/streets-v12'"
+    (mapLoad)="onMapLoad($event)"
+    [center]="[-113.672752, 53.493234]"
+    [zoom]="[14]">
+
+    <mgl-control mglNavigation></mgl-control>
+
+    <mgl-marker #myMarker *ngFor="let item of warehouses; let i = index" [lngLat]="item.coordinate">
+      <div class="marker">
+        <fa-layers size="3x">
+          <fa-icon [icon]="['fas', 'location-pin']"></fa-icon>
+        </fa-layers>
+      </div>
+    </mgl-marker>
+  </mgl-map>
+</div>

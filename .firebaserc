@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "superbike-49a78"
+  },
+  "targets": {
+    "superbike-49a78": {
+      "hosting": {
+        "panSuperbike": [
+          "superbike-49a78"
+        ]
+      }
+    }
+  }
+}

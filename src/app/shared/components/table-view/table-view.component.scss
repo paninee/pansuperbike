@@ -1,0 +1,46 @@
+@import 'lib.scss';
+
+table {
+  width: 100%;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: $white;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.diagram {
+  min-width: 100px;
+  padding: $spacing-8;
+  font-weight: lighter;
+  margin: $spacing-8 0;
+  height: 104px;
+}
+
+.element-img {
+  width: 100px;
+
+  img {
+    width: 100px;
+  }
+}
+
+.element-description {
+  padding: $spacing-16;
+}
+
+.edit-icon {
+  color: $blue;
+}

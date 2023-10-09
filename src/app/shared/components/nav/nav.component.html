@@ -1,0 +1,22 @@
+<mat-nav-list class="nav-list">
+  <div class="logo">
+    <object data="./assets/superbike-logo.svg" width="250" height="100"></object>
+  </div>
+  <ng-container *ngFor="let item of navList">
+    <mat-list-item class="list-item" [routerLink]="item.url" [routerLinkActive]="'active'"
+                   [routerLinkActiveOptions]={exact:true}>
+      <fa-icon [icon]="item.icon" matListItemIcon size="xl"></fa-icon>
+      <span class="label" matListItemTitle>{{item.label}}</span>
+    </mat-list-item>
+  </ng-container>
+
+</mat-nav-list>
+<div class="theme-switcher">
+  <button mat-icon-button aria-label="icon button" (click)="changeTheme('light-theme')">
+    <fa-icon icon="sun" matListItemIcon size="xl"></fa-icon>
+  </button>
+  <mat-slide-toggle hideIcon="true" [checked]="theming.theme.value == 'dark-theme'" (change)="toggleChange($event)"></mat-slide-toggle>
+  <button mat-icon-button aria-label="Example icon button" (click)="changeTheme('dark-theme')">
+    <fa-icon icon="moon" matListItemIcon size="xl"></fa-icon>
+  </button>
+</div>

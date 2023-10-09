@@ -1,0 +1,9 @@
+<span class="snack-label" matSnackBarLabel>
+  <fa-icon [icon]="data && data.status == 'success' ? 'check' : 'info'"></fa-icon>
+  {{message ? message : 'something went wrong, please try again'}}
+</span>
+<span matSnackBarActions>
+  <button mat-button matSnackBarAction (click)="snackBarRef.dismissWithAction()">
+    <fa-icon icon="times"></fa-icon>
+  </button>
+</span>

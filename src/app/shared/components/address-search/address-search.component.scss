@@ -1,0 +1,61 @@
+@import 'lib.scss';
+@import 'scrollbar.scss';
+
+$height: 450px;
+.m-form-search {
+  display: flex;
+  border-radius: 3px;
+
+  .clear-icon {
+    cursor: pointer;
+  }
+}
+
+.lf-result-container {
+  position: relative;
+
+  .lf-scrollable-container {
+    width: 100%;
+    position: absolute;
+    max-height: $height;
+    min-height: auto;
+    display: block;
+    overflow: hidden;
+    z-index: 20;
+
+    .lf-scroll-content {
+      @include scrollbar(6px, $primary);
+      max-height: $height;
+      overflow-y: auto;
+      background: $white;
+
+      .lf-scroll-item {
+        padding: $spacing-8;
+        width: 100%;
+        text-align: left;
+        background: none;
+        border: none;
+        color: $black;
+        font-size: $spacing-16;
+        outline: 0;
+        cursor: pointer;
+
+        &:hover {
+          background: darken($white, 10%);
+        }
+
+        &.no-result {
+          cursor: unset;
+        }
+      }
+    }
+  }
+}
+
+.mapbox-container {
+  height: $height;
+
+  mgl-map {
+    height: 100%;
+  }
+}

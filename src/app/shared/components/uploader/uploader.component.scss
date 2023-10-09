@@ -1,0 +1,13 @@
+@import 'lib.scss';
+
+.img-form {
+  cursor: pointer;
+  text-align: center;
+  padding: 40px 0px;
+  border: 2px dashed $primary;
+  margin-top: $spacing-16;
+}
+
+.dragover > .my-dropzone {
+  border-width: 2px;
+}

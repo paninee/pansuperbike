@@ -1,0 +1,13 @@
+@import 'lib.scss';
+
+.no-reuslt {
+  text-align: center;
+
+  .message {
+    font-size: $size-1;
+    font-weight: bold;
+    color: $black;
+    padding: $spacing-40 0 $spacing-20;
+  }
+
+}

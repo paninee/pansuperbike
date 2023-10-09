@@ -1,0 +1,46 @@
+<div class="dash-cards">
+  <mat-card *ngFor="let item of dashboardCount" class="card">
+    <mat-card-header class="card-header {{item.color}}">
+      <div mat-card-avatar class="card-icon">
+        <fa-icon [icon]="item.icon" mat-card-avatar size="3x"></fa-icon>
+      </div>
+      <mat-card-subtitle class="subtitle">{{item.label}}</mat-card-subtitle>
+      <mat-card-title class="title">{{item.count}}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+<!-- START Pie chart -->
+<mat-card class="chart-card">
+  <mat-card-header class="card-header">
+    <mat-card-title class="card-title">Items Colors</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-pie-chart [pieData]="pieChartData"></app-pie-chart>
+  </mat-card-content>
+</mat-card>
+<!-- END Pie chart -->
+
+<!-- START SMNNY Line chart -->
+<mat-card class="chart-card">
+  <mat-card-header class="card-header">
+    <mat-card-title class="card-title">Shimano - OTC:SMNNY</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-spinner *ngIf="isSmnnyLoading"></app-spinner>
+    <app-line-chart *ngIf="!isSmnnyLoading" [lineData]="smnnyLineChartData"></app-line-chart>
+  </mat-card-content>
+</mat-card>
+<!-- END SMNNY Line chart -->
+
+<!-- START PTON Line chart -->
+<mat-card class="chart-card">
+  <mat-card-header class="card-header">
+    <mat-card-title class="card-title">Peloton Interactive - NASDAQ:PTON</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-spinner *ngIf="isPtonLoading"></app-spinner>
+    <app-line-chart *ngIf="!isPtonLoading" [lineData]="ptonLineChartData"></app-line-chart>
+  </mat-card-content>
+</mat-card>
+<!-- END PTON Line chart -->

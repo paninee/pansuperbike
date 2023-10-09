@@ -1,0 +1,49 @@
+@import 'lib.scss';
+
+.form-fields {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-24;
+
+  mat-button-toggle-group {
+    .btn-color {
+      width: $input-height;
+      border-radius: $border-radius;
+      margin-left: $spacing-6;
+      cursor: pointer;
+    }
+
+    mat-button-toggle:last-child {
+      border: 1px solid $black !important;
+    }
+
+    &:hover {
+      background: none !important;
+    }
+
+    .mat-button-toggle-checked {
+      border: 4px solid $primary !important;
+      width: 48px !important;
+
+      &:last-child {
+        border: 4px solid $primary !important;
+      }
+    }
+  }
+}
+
+.img-preview {
+  position: relative;
+  margin-bottom: $spacing-16;
+
+  img {
+    height: 180px;
+    width: 180px;
+    border-radius: $border-radius;
+    object-fit: cover;
+  }
+
+  .btn-close {
+    position: absolute;
+  }
+}

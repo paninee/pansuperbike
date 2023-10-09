@@ -1,0 +1,139 @@
+// Manual overwrites of Angular Material.
+
+
+// ------- [START] Form
+mat-form-field {
+  width: 100%;
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--mat-sidenav-container-background-color);
+  }
+
+  .mdc-text-field {
+    padding: 0 $spacing-6 !important;
+  }
+
+  .mdc-line-ripple::before {
+    border-bottom-width: 2px !important;
+    border-bottom-color: $primary !important;
+  }
+
+  .form-input {
+    width: 50%;
+    padding-inline-end: 16px;
+  }
+}
+
+.img-form {
+  width: 100%;
+  margin-bottom: $spacing-16;
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--mat-sidenav-container-background-color);
+  }
+
+  .mdc-line-ripple::before {
+    border-bottom-width: 0 !important;
+    border-bottom-color: unset !important;
+  }
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: unset;
+}
+
+.dark-theme .mat-mdc-form-field-focus-overlay {
+  background-color: unset;
+}
+
+.td-edit-field {
+  .mdc-line-ripple::before, .mdc-line-ripple--active::before, .mdc-line-ripple--active::after {
+    border-bottom-width: 0 !important;
+    border-bottom-color: unset !important;
+  }
+}
+
+// ------- [END] Form
+
+
+// ------- [START] Button
+button.mat-mdc-button-base, mat-button-toggle-group {
+  height: $input-height !important;
+  border-radius: $border-radius !important;
+  border: none !important;
+  // &:hover {
+  //   background-color: $primary !important;
+  // }
+  span.mat-button-toggle-label-content {
+    line-height: $input-height !important;
+  }
+
+  .mat-button-toggle {
+    button {
+      height: 100%;
+    }
+  }
+}
+
+.toggle-group-btn {
+  .mat-button-toggle:hover, .mat-button-toggle-checked {
+    background-color: $primary !important;
+  }
+}
+
+// ------- [END] Button
+
+
+// ------- [START] Layout
+.mat-grid-tile-content {
+  justify-content: start !important;
+  margin-right: $spacing-16 !important;
+}
+
+// ------- [END] Layout
+
+
+// ------- [START] Snackbar
+.mat-mdc-snack-bar-container {
+  &.warn-snackbar {
+    --mdc-snackbar-container-color: #ff0e0e;
+    --mat-mdc-snack-bar-button-color: $white;
+    --mdc-snackbar-supporting-text-color: $white;
+    color: $white !important;
+  }
+
+  &.success-snackbar {
+    --mdc-snackbar-container-color: #198754;
+    --mat-mdc-snack-bar-button-color: $white;
+    --mdc-snackbar-supporting-text-color: $white !important;
+    color: $white !important;
+  }
+}
+
+// ------- [END] Snackbar
+
+
+// ------- [START] Card
+mat-card {
+  mat-card-content {
+    padding: $spacing-16 !important;
+  }
+
+  .mat-badge-content {
+    top: $spacing-6 !important;
+    right: $spacing-6 !important;
+  }
+}
+
+// ------- [END] Card
+
+// -------- [START] Toggle Slide
+.mdc-switch:enabled .mdc-switch__track::before, .mdc-switch__track::after {
+  background: $primary !important;
+}
+
+.mdc-switch__handle::before, .mdc-switch__handle::after {
+  background: darken($color: $primary, $amount: 10) !important;
+}
+
+// -------- [END]

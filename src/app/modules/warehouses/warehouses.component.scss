@@ -1,0 +1,42 @@
+@import 'lib.scss';
+
+$mapsHeight: 88vh;
+
+#warehouses-header-container {
+  text-align: right;
+}
+
+.warehouse {
+  height: $mapsHeight;
+  position: relative;
+  padding-top: $spacing-16;
+
+  mgl-map {
+    height: 100%;
+    width: 100%;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    .marker {
+      // cursor: pointer;
+
+      fa-icon {
+        fill: $primary;
+        color: $primary;
+
+        &:hover {
+          fill: $secondary;
+          color: $secondary;
+        }
+      }
+
+      fa-layers-text {
+        font-family: inherit;
+        font-size: $spacing-16;
+        font-weight: bold;
+        color: $white;
+      }
+    }
+  }
+}
+

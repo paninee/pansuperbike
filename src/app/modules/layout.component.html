@@ -1,0 +1,20 @@
+<!-- loading indecator -->
+<app-loading-indicator></app-loading-indicator>
+<!-- end loading indecator -->
+
+<mat-sidenav-container class="sidenav-container" autosize>
+  <mat-sidenav #sidenav class="sidenav" fixedInViewport
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false"
+  >
+    <app-nav></app-nav>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="app-body">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

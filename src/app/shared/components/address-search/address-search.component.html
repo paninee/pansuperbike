@@ -1,0 +1,61 @@
+<div class="grid-column">
+  <div id="lookup-field-componnt">
+    <div addressFieldCursorIsIn class="m-form-search" (statusChanges)="onCursorIsInStatusChanges($event)">
+
+      <mat-form-field id="location" color="primary" class="form-field">
+        <mat-label>Address</mat-label>
+        <input
+          #inputEl
+          matInput
+          type="text"
+          [formControl]="form.address"
+          placeholder="Enter an address"
+          (blur)="onInputBlur()"
+          aria-label="address"
+          aria-labelledby="lbl-address"
+        >
+        <span *ngIf="!form.address.value" matSuffix> <fa-icon icon="search"></fa-icon></span>
+        <span class="clear-icon" *ngIf="form.address.value" matSuffix (click)="onInputClear()"> <fa-icon icon="times"></fa-icon></span>
+        <mat-error *ngIf="form.address.errors?.required">
+          You must enter an address
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="lf-result-container">
+      <div addressFieldCursorIsIn class="lf-scrollable-container" (statusChanges)="onCursorIsInStatusChanges($event)">
+        <div class="lf-scroll-content">
+          <ng-container *ngFor="let item of list;">
+            <button
+              type="button"
+              class="lf-scroll-item"
+              [ngClass]="{'no-result': item.isNoResult}"
+              (click)="onResultClick(item, inputEl)"
+            >{{ item[key] }}</button>
+          </ng-container>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="mapbox-container">
+    <mgl-map
+      *ngIf="accessToken && centreLatLng"
+      [accessToken]="accessToken"
+      #map
+      (mapClick)="mapClicked($event)"
+      [style]="'mapbox://styles/mapbox/streets-v12'"
+      [zoom]="[10]"
+      [center]="centreLatLng"
+    >
+      <mgl-control mglNavigation></mgl-control>
+
+      <mgl-marker
+        *ngIf="markerLatLng"
+        #marker
+        [lngLat]="markerLatLng"
+      ></mgl-marker>
+    </mgl-map>
+  </div>
+
+</div>

@@ -1,0 +1,15 @@
+@import 'lib.scss';
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  user-select: none;
+  width: 300px;
+}
+
+.app-body {
+  padding: $spacing-16;
+}
+

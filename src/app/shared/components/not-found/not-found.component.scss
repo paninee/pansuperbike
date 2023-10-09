@@ -1,0 +1,26 @@
+@import 'lib.scss';
+
+.not-found {
+  text-align: center;
+
+  .not-found-404 {
+    font-size: $size-4;
+    font-weight: bold;
+    color: $black;
+    padding: $spacing-40 0 $spacing-20;
+  }
+
+  .not-found-content {
+    width: 480px;
+    max-width: 100%;
+    margin: 0 auto;
+
+    .not-found-title {
+      margin-bottom: $spacing-30;
+    }
+
+    .not-found-text {
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<div id="items-header-container">
+  <div id="items-search-container">
+    <mat-form-field color="primary" class="form-field">
+      <input matInput type="search" placeholder="Search">
+      <fa-icon icon="search" matSuffix></fa-icon>
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-flat-button value="new" aria-label="add new item" routerLink="/items/new">
+      <fa-icon icon="add" matPrefix size="2xl"></fa-icon>
+      New Item
+    </button>
+  </div>
+  <div>
+    <mat-button-toggle-group #group="matButtonToggleGroup" class="toggle-group-btn" value="grid">
+      <mat-button-toggle value="grid" aria-label="grid layout" class="group-btn active" (click)="layout = 'grid'">
+        <fa-icon icon="grip" size="2xl"></fa-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="list" aria-label="list layout" class="group-btn" (click)="layout = 'table'">
+        <fa-icon icon="table-list" size="2xl"></fa-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+</div>
+<ng-container *ngIf="items && items.length">
+  <ng-container [ngSwitch]="layout">
+    <app-card-view *ngSwitchCase="'grid'" [items]="items" [clickUrl]="'edit'"></app-card-view>
+    <app-editable-table *ngSwitchCase="'table'" [items]="items"></app-editable-table>
+  </ng-container>
+</ng-container>
+
+<!-- no result component  -->
+<ng-container *ngIf="!items.length">
+  <app-no-result></app-no-result>
+</ng-container>
+

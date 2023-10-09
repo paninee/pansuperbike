@@ -1,0 +1,41 @@
+// Base designs of the app. Define standard colors, spacing, and typography.
+
+//colors
+$primary: #31c48e;
+$secondary: #398378;
+$white: #fff;
+$success: #3f9d2f;
+$process: #fdd835;
+$warn: #f28500;
+$danger: #ab0800;
+$blue: #009DAD;
+$black: #2B1A14;
+
+//spacing
+$spacing-6: 6px;
+$spacing-8: 8px;
+$spacing-10: 10px;
+$spacing-12: 12px;
+$spacing-16: 16px;
+$spacing-20: 20px;
+$spacing-24: 24px;
+$spacing-26: 26px;
+$spacing-30: 30px;
+$spacing-40: 40px;
+
+//sizes
+$size-1: 1rem;
+$size-2: 2rem;
+$size-3: 3rem;
+$size-4: 4rem;
+
+//border
+$border-radius: 8px;
+
+
+$gap: 10px;
+$card-width: 380px;
+$input-height: 56px;
+
+//table form-field
+$tdFieldWidth: 70px;

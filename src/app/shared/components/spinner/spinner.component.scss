@@ -1,0 +1,22 @@
+@keyframes site-preloader-animation {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.spinner {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  fa-icon {
+    animation-name: site-preloader-animation;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+}

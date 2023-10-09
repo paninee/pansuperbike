@@ -1,0 +1,11 @@
+<div class="card-container">
+  <div class="card" *ngFor="let item of items">
+    <mat-card [routerLink]="clickUrl+'/'+item.id" [matBadge]="item.count" [matBadgeSize]="'medium'" [matBadgeColor]="item.count > 0 ? 'primary' : 'warn'">
+      <img mat-card-image [src]="item.img" [alt]="item.name">
+      <mat-card-content class="card-content">
+        <h3>{{item.brand | uppercase}}</h3>
+        <p>{{item.model}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+@import './preloader.scss';
+
+$local-transition-duration: .1s;
+
+.btn {
+  border-radius: 2px;
+  transition: all $local-transition-duration ease-in-out;
+
+  font-size: 1rem;
+  height: calc(2.25rem + 2px);
+  line-height: 1.5;
+  padding: .375rem 1.25rem;
+  font-weight: medium;
+}
+
+.btn:disabled,
+.btn.disabled {
+  cursor: default;
+}
+
+@mixin local-button-variant($bg, $color) {
+
+  &.focus,
+  &:focus,
+  &:hover {
+    border-color: lighten($bg, 20);
+    background: lighten($bg, 20);
+    color: $color;
+    fill: lighten($bg, 20);
+  }
+
+  &.focus,
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    border-color: $bg;
+    background: $bg;
+    color: $color;
+    fill: $color;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &,
+  &.disabled,
+  &:disabled {
+    border-color: $bg;
+    background: $bg;
+    color: $color;
+    fill: $color;
+  }
+}
+
+@mixin btn-primary {
+  @include local-button-variant($primary, $white);
+}
+
+.btn-secondary {
+  @include local-button-variant($secondary, $white)
+}
+
+/* loading state */
+.btn-loading {
+  position: relative;
+
+  /* hide button content */
+  &,
+    /* hover */
+  &:hover,
+    /* focus */
+  &.focus,
+  &:focus,
+    /* active */
+  &:not(:disabled):not(.disabled).active,
+  &:not(:disabled):not(.disabled):active,
+    /* disabled */
+  &.disabled,
+  &:disabled {
+    color: transparent;
+    fill: transparent;
+  }
+
+  &:after {
+    @include preloader();
+  }
+
+  /* nl size (default) */
+  &:after {
+    @include preloader-size(22px);
+  }
+}
+
+.full-btn {
+  width: 100% !important;
+  padding-top: 16px;
+}

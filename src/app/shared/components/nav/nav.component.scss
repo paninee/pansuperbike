@@ -1,0 +1,30 @@
+@import 'lib.scss';
+
+.nav-list {
+  padding: $spacing-20;
+
+
+  fa-icon {
+    color: $primary;
+  }
+
+  .active, .list-item:hover {
+    background-color: $primary;
+    border-radius: $border-radius;
+
+    fa-icon {
+      color: $white !important;
+    }
+
+    .label {
+      color: $white !important;
+    }
+  }
+}
+
+.theme-switcher {
+  position: fixed;
+  bottom: 10px;
+  right: 40px;
+  left: 40px;
+}

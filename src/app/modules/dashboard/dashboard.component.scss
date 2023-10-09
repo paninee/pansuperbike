@@ -1,0 +1,137 @@
+@import 'lib.scss';
+
+.dash-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: $gap;
+
+  .card {
+    flex: 0 0 24.3%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+
+    .card-header {
+      padding-right: 0px !important;
+    }
+
+    .card-icon {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      border-radius: $border-radius;
+      justify-content: center;
+
+      fa-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+    }
+
+    .success {
+      .card-icon {
+        background-color: lighten($success, 40%);
+
+        fa-icon {
+          color: $success;
+        }
+      }
+
+      .title {
+        color: $success;
+      }
+
+      .subtitle {
+        color: $success;
+      }
+    }
+
+    .process {
+      .card-icon {
+        background-color: lighten($process, 30%);
+
+        fa-icon {
+          color: $process;
+        }
+      }
+
+      .title {
+        color: $process;
+      }
+
+      .subtitle {
+        color: $process;
+      }
+    }
+
+    .warn {
+      .card-icon {
+        background-color: lighten($warn, 40%);
+
+        fa-icon {
+          color: $warn;
+        }
+      }
+
+      .title {
+        color: $warn;
+      }
+
+      .subtitle {
+        color: $warn;
+      }
+    }
+
+    .danger {
+      .card-icon {
+        background-color: lighten($danger, 40%);
+
+        fa-icon {
+          color: $danger;
+        }
+      }
+
+      .title {
+        color: $danger;
+      }
+
+      .subtitle {
+        color: $danger;
+      }
+    }
+
+    .title {
+      font-size: $size-3;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      font-size: $size-1;
+      font-weight: bold;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .card {
+      flex: 0 0 48%;
+    }
+  }
+}
+
+.chart-card {
+  margin: $spacing-16 0;
+  border-radius: $border-radius;
+
+  .card-header {
+    justify-content: center;
+
+    .card-title {
+      font-size: $size-2;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import 'lib.scss';
+
+.full-width-table {
+  width: 100%;
+}
+
+.table-form {
+  position: relative;
+
+  .spinner-table {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.td-form-field {
+  width: $tdFieldWidth;
+}
+
+.select-field {
+  width: 120px;
+
+  input {
+    text-transform: capitalize;
+  }
+}
+
+.option {
+  font-size: $spacing-12;
+  padding: 0 $spacing-10;
+}
